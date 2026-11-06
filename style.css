@@ -1,0 +1,746 @@
+/* =========================
+   ECOBIKE SP - ESTILOS
+   (só aparência: HTML e JS continuam iguais)
+========================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;700&display=swap");
+
+:root {
+  --verde: #12804a;
+  --verde-escuro: #0c4a2e;
+  --verde-claro: #e7f5ec;
+  --lima: #d6f06a;
+  --fundo: #fbfdfb;
+  --texto: #14231a;
+  --cinza: #5b6b61;
+  --card: #ffffff;
+  --borda: #dce8e0;
+  --hero-bg: linear-gradient(135deg, #e7f5ec 0%, #f4fbe4 100%);
+  --sombra: 0 14px 34px rgba(12, 74, 46, 0.12);
+  --fonte-titulo: "Bricolage Grotesque", "Arial Black", Arial, sans-serif;
+  --fonte-texto: "Figtree", Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.65;
+  transition:
+    background-color 0.4s,
+    color 0.4s;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--lima);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--verde-escuro);
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+  width: 100%;
+  padding: 16px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--borda);
+  background: color-mix(in srgb, var(--fundo) 82%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition:
+    background-color 0.4s,
+    border-color 0.4s;
+}
+
+.logo {
+  color: var(--texto);
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--verde);
+}
+
+nav {
+  display: flex;
+  gap: 32px;
+}
+
+nav a {
+  position: relative;
+  color: var(--cinza);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 4px 0;
+  transition: color 0.3s;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--verde);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--verde);
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.btn-tema {
+  background: var(--verde-claro);
+  color: var(--verde);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 20px;
+  transition:
+    transform 0.4s ease,
+    background-color 0.3s;
+}
+
+.btn-tema:hover {
+  transform: rotate(25deg) scale(1.08);
+}
+
+.btn-principal {
+  display: inline-block;
+  background: var(--verde);
+  color: #fff;
+  padding: 15px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(18, 128, 74, 0.28);
+  transition:
+    background-color 0.3s,
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.btn-principal:hover {
+  background: var(--verde-escuro);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(18, 128, 74, 0.36);
+}
+
+.btn-principal:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  background: var(--hero-bg);
+  min-height: 560px;
+  padding: 90px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  overflow: hidden;
+  transition: background 0.4s;
+}
+
+.hero-conteudo {
+  max-width: 600px;
+}
+
+.etiqueta,
+.titulo-secao span {
+  display: inline-block;
+  background: var(--card);
+  color: var(--verde);
+  border: 1px solid var(--borda);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.etiqueta::first-letter,
+.titulo-secao span::first-letter {
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 24px 0;
+}
+
+.hero h1 span {
+  color: var(--verde);
+}
+
+.hero p {
+  color: var(--cinza);
+  font-size: 18px;
+  margin-bottom: 34px;
+  max-width: 480px;
+}
+
+/* Entrada orquestrada do hero (acontece uma única vez, ao abrir a página) */
+.hero-conteudo > * {
+  animation: subir 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.hero-conteudo > :nth-child(2) {
+  animation-delay: 0.12s;
+}
+.hero-conteudo > :nth-child(3) {
+  animation-delay: 0.24s;
+}
+.hero-conteudo > :nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+.hero-imagem {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(230px, 32vw, 400px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: clamp(110px, 16vw, 200px);
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, var(--lima) 140%);
+  box-shadow:
+    inset 0 0 0 10px rgba(255, 255, 255, 0.5),
+    var(--sombra);
+  animation: entrar 1s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Ciclovia: faixa tracejada que "anda" sob a bicicleta */
+.hero-imagem::after {
+  content: "";
+  position: absolute;
+  left: -14%;
+  right: -14%;
+  bottom: -28px;
+  height: 5px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--verde) 0 30px,
+    transparent 30px 56px
+  );
+  background-size: 56px 100%;
+  animation: estrada 1s linear infinite;
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateX(80px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes estrada {
+  to {
+    background-position-x: -56px;
+  }
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.secao {
+  padding: 100px 8%;
+}
+
+.titulo-secao {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.titulo-secao h2 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 16px 0 10px;
+}
+
+.titulo-secao p {
+  color: var(--cinza);
+  font-size: 17px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 38px 30px;
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  background: var(--card);
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.35s,
+    background-color 0.4s,
+    border-color 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra);
+}
+
+.card.destaque {
+  background: var(--verde-escuro);
+  border-color: var(--verde-escuro);
+  color: #fff;
+  transform: translateY(-12px);
+}
+
+.card.destaque:hover {
+  transform: translateY(-20px);
+}
+
+.card.destaque p,
+.card.destaque .preco small {
+  color: #bfdccb;
+}
+
+.card.destaque .preco {
+  color: var(--lima);
+}
+
+.icone {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background: var(--verde-claro);
+  font-size: 34px;
+  margin-bottom: 22px;
+  transition: transform 0.4s ease;
+}
+
+.card.destaque .icone {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.card:hover .icone {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.card h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--cinza);
+  min-height: 52px;
+}
+
+.preco {
+  color: var(--verde);
+  font-family: var(--fonte-titulo);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px dashed var(--borda);
+}
+
+.card.destaque .preco {
+  border-top-color: rgba(255, 255, 255, 0.25);
+}
+
+.preco small {
+  color: var(--cinza);
+  font-family: var(--fonte-texto);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.aviso {
+  width: fit-content;
+  margin: 45px auto 0;
+  background: var(--verde-claro);
+  color: var(--verde);
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-align: center;
+}
+
+/* =========================
+   PAINÉIS
+========================= */
+
+.simulador {
+  background: var(--verde-claro);
+  transition: background-color 0.4s;
+}
+
+.painel {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  max-width: 560px;
+  margin: auto;
+  padding: 42px;
+  border-radius: 28px;
+  box-shadow: var(--sombra);
+  transition:
+    background-color 0.4s,
+    border-color 0.4s;
+}
+
+.painel label {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 12px 0 8px;
+}
+
+.painel input,
+.painel select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--borda);
+  border-radius: 14px;
+  margin-bottom: 16px;
+  background: var(--fundo);
+  color: var(--texto);
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    background-color 0.4s;
+}
+
+.painel input:hover,
+.painel select:hover {
+  border-color: var(--verde);
+}
+
+.painel input:focus,
+.painel select:focus {
+  outline: none;
+  border-color: var(--verde);
+  box-shadow: 0 0 0 4px rgba(18, 128, 74, 0.18);
+}
+
+.painel .btn-principal {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#resultado {
+  text-align: center;
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--verde);
+  background: var(--verde-claro);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 22px;
+}
+
+/* =========================
+   RESERVAS
+========================= */
+
+.lista-container {
+  border-top: 1px solid var(--borda);
+  margin-top: 32px;
+  padding-top: 26px;
+}
+
+.lista-container h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+#lista {
+  list-style: none;
+}
+
+#lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: var(--verde-claro);
+  border-left: 4px solid var(--verde);
+  font-weight: 500;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+  animation: surgir 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+/* Reserva nova aparece com um "pulinho", confirmando a ação */
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateX(-16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+#lista button {
+  background: #d94b4b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  transition:
+    background-color 0.25s,
+    transform 0.2s;
+}
+
+#lista button:hover {
+  background: #b83636;
+  transform: scale(1.06);
+}
+
+.contador {
+  margin-top: 16px;
+  color: var(--cinza);
+}
+
+.contador strong {
+  color: var(--verde);
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+  background: #0d1f15;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px 40px;
+  border-top: 4px solid var(--verde);
+}
+
+footer .logo {
+  color: #fff;
+}
+
+footer p {
+  margin: 10px 0;
+  color: #c3d0c7;
+}
+
+footer small {
+  display: block;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9fb0a4;
+}
+
+/* =========================
+   MODO ESCURO
+========================= */
+
+body.dark {
+  --fundo: #0f1a13;
+  --texto: #eef4ef;
+  --cinza: #aebdb2;
+  --card: #192a20;
+  --borda: #2c4033;
+  --verde: #3ec47b;
+  --verde-claro: #1d3326;
+  --hero-bg: linear-gradient(135deg, #14281c 0%, #1b2e17 100%);
+  --sombra: 0 14px 34px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .btn-principal {
+  color: #07150d;
+}
+
+body.dark .btn-principal:hover {
+  background: var(--lima);
+}
+
+body.dark .hero-imagem {
+  background: radial-gradient(circle at 35% 30%, #2c4a36 0%, #1d3326 100%);
+  box-shadow:
+    inset 0 0 0 10px rgba(255, 255, 255, 0.04),
+    var(--sombra);
+}
+
+body.dark .card.destaque {
+  background: #0a2e1c;
+  border-color: var(--verde);
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .card.destaque,
+  .card.destaque:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 14px 5%;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 7% 80px;
+    gap: 60px;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .secao {
+    padding: 70px 6%;
+  }
+
+  .painel {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+}
+
+/* =========================
+   ACESSIBILIDADE: MENOS MOVIMENTO
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

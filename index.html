@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoBike SP | Mobilidade sustentável</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- CABEÇALHO -->
+    <header class="header">
+      <a href="#inicio" class="logo">EcoBike<span>SP.</span></a>
+
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#planos">Planos</a>
+        <a href="#simulador">Simulador</a>
+        <a href="#reservas">Reservas</a>
+      </nav>
+
+      <button id="btnTema" class="btn-tema">☾</button>
+    </header>
+
+    <main>
+      <!-- INÍCIO -->
+      <section id="inicio" class="hero">
+        <div class="hero-conteudo">
+          <span class="etiqueta">MOBILIDADE URBANA SUSTENTÁVEL</span>
+
+          <h1>
+            Vá mais longe.<br />
+            <span>Pedale melhor.</span>
+          </h1>
+
+          <p>
+            Alugue sua bicicleta e descubra uma maneira mais prática, econômica
+            e sustentável de explorar São Paulo.
+          </p>
+
+          <a href="#planos" class="btn-principal"> Conheça nossos planos → </a>
+        </div>
+
+        <div class="hero-imagem">🚲</div>
+      </section>
+
+      <!-- PLANOS -->
+      <section id="planos" class="secao">
+        <div class="titulo-secao">
+          <span>NOSSAS BICICLETAS</span>
+          <h2>Escolha seu estilo de pedal</h2>
+          <p>Temos a bicicleta ideal para cada trajeto.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icone">🚲</div>
+            <h3>Urbana</h3>
+            <p>Simples e confortável para o dia a dia.</p>
+            <div class="preco">R$ 12 <small>/ hora</small></div>
+          </article>
+
+          <article class="card destaque">
+            <div class="icone">⚡</div>
+            <h3>Elétrica</h3>
+            <p>Mais velocidade e conforto nos trajetos.</p>
+            <div class="preco">R$ 20 <small>/ hora</small></div>
+          </article>
+
+          <article class="card">
+            <div class="icone">📦</div>
+            <h3>Cargo</h3>
+            <p>Ideal para transportar objetos e entregas.</p>
+            <div class="preco">R$ 25 <small>/ hora</small></div>
+          </article>
+        </div>
+
+        <p class="aviso">✨ Acima de 5 horas, você ganha 10% de desconto!</p>
+      </section>
+
+      <!-- SIMULADOR -->
+      <section id="simulador" class="secao simulador">
+        <div class="titulo-secao">
+          <span>SIMULADOR</span>
+          <h2>Quanto vai custar?</h2>
+          <p>Escolha sua bike e descubra o valor do aluguel.</p>
+        </div>
+
+        <div class="painel">
+          <label for="horas">Quantas horas?</label>
+          <input type="number" id="horas" min="1" placeholder="Ex: 3" />
+
+          <label for="tipo">Tipo de bicicleta</label>
+          <select id="tipo">
+            <option value="urbana">Urbana</option>
+            <option value="eletrica">Elétrica</option>
+            <option value="cargo">Cargo</option>
+          </select>
+
+          <button id="calcular" class="btn-principal">Calcular valor</button>
+
+          <p id="resultado">Seu valor aparecerá aqui.</p>
+        </div>
+      </section>
+
+      <!-- RESERVAS -->
+      <section id="reservas" class="secao">
+        <div class="titulo-secao">
+          <span>PRÉ-RESERVA</span>
+          <h2>Garanta sua pedalada</h2>
+          <p>Adicione seu nome à lista de interessados.</p>
+        </div>
+
+        <div class="painel">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" placeholder="Digite seu nome" />
+
+          <button id="adicionar" class="btn-principal">
+            + Adicionar reserva
+          </button>
+
+          <div class="lista-container">
+            <h3>Lista de reservas</h3>
+
+            <ul id="lista"></ul>
+
+            <p class="contador">
+              Total de reservas: <strong id="total">0</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+      <a href="#inicio" class="logo">EcoBike<span>SP.</span></a>
+      <p>Mobilidade inteligente para uma cidade melhor.</p>
+      <p>Contato: marina@ecobikesp.com.br</p>
+      <small>© 2026 EcoBike SP. Todos os direitos reservados.</small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
